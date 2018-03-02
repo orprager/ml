@@ -1,0 +1,16 @@
+#Intercept #Centralizing #Bias
+
+when we try to predict using linear regression we try to find a connection between predictors and then we draw a
+linear line represent the connection.
+
+sometimes (depends on our data) we'll have predictors with the value of 0, then it will force our line to go through
+the origin (0,0,...).
+it can cause bias, therefor we centralize our data + set the value of all 0's predictors to the mean Y of them.
+
+http://blog.minitab.com/blog/adventures-in-statistics-2/regression-analysis-how-to-interpret-the-constant-y-intercept
+
+intercept is the mean value of all X (predictor) = 0
+and what if our X never = 0? we can centralize our data so the mean of all X will be 0 (just subtract a value from X)
+
+explanation - https://www.theanalysisfactor.com/interpreting-the-intercept-in-a-regression-model/
+

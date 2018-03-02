@@ -1,0 +1,5 @@
+explained at - http://scikit-learn.org/stable/modules/generated/sklearn.utils.class_weight.compute_class_weight.html
+
+balanced - n_samples / (n_classes * np.bincount(y))
+dict - {class: weight}
+none - uniform weight

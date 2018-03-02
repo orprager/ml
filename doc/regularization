@@ -1,0 +1,18 @@
+#Regularization #Overfitting
+
+Regularization is applying a penalty to increasing the magnitude of parameter values in order to reduce overfitting.
+When you train a model such as a logistic regression model, you are choosing parameters that give you the best fit to
+the data. This means minimizing the error between what the model predicts for your dependent variable given your data
+compared to what your dependent variable actually is.
+
+The problem comes when you have a lot of parameters (a lot of independent variables) but not too much data. In this case,
+the model will often tailor the parameter values to idiosyncrasies in your data -- which means it fits your data almost perfectly.
+However because those idiosyncrasies don't appear in future data you see, your model predicts poorly.
+
+To solve this, as well as minimizing the error as already discussed, you add to what is minimized and also minimize a
+function that penalizes large values of the parameters. Most often the function is λΣθj2, which is some constant λ times
+the sum of the squared parameter values θj2. The larger λ is the less likely it is that the parameters will be increased
+in magnitude simply to adjust for small perturbations in the data. In your case however, rather than specifying λ,
+you specify C=1/λ.
+
+wiki: https://en.wikipedia.org/wiki/Regularization_%28mathematics%29#Regularization_in_statistics_and_machine_learning
