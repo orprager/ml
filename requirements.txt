@@ -1,3 +1,5 @@
+gensim
+numpy
 nltk
 beautifulsoup4
 scikit-learn
