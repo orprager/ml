@@ -1,3 +1,4 @@
+cvxpy
 gensim
 numpy
 nltk

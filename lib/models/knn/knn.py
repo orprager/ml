@@ -9,7 +9,6 @@ class KNN(object):
     VALID_DISTANCE_METHODS = ["euclidean"]
     VALID_TIE_SOLVING_METHODS = ["decr_k"]
 
-    INVALID_DISTANCE_METHOD_ERR_MSG = "distance method must be one of the following: {}"
     INVALID_SOLVE_TIE_METHOD_ERR_MSG = "solve tie method must be one of the following: {}"
     INVALID_K_NEIGHBORS_ERR_MSG = "you must choose k greater than 0"
 
@@ -28,13 +27,10 @@ class KNN(object):
         self.training_labels = training_labels
         self.fit_executed = True
 
-    def _predict_check_input(self, distance_method, solve_tie_method, k_nigh):
+    def _predict_check_input(self, solve_tie_method, k_nigh):
 
         if not self.fit_executed:
             raise Exception("you must run fit with training data and labels before predict")
-
-        assert distance_method in KNN.VALID_DISTANCE_METHODS, \
-            KNN.INVALID_DISTANCE_METHOD_ERR_MSG.format(','.join(KNN.VALID_DISTANCE_METHODS))
 
         assert solve_tie_method in KNN.VALID_TIE_SOLVING_METHODS, \
             KNN.INVALID_SOLVE_TIE_METHOD_ERR_MSG.format(','.join(KNN.VALID_TIE_SOLVING_METHODS))
@@ -43,7 +39,7 @@ class KNN(object):
 
     def predict(self, test_data, k_neig, distance_method=EuclideanDistance, solve_tie_method='decr_k'):
 
-        self._predict_check_input(distance_method, solve_tie_method, k_neig)
+        self._predict_check_input(solve_tie_method, k_neig)
 
         predicted_labels = []
         for v in test_data:
