@@ -1,14 +1,8 @@
 import numpy as np
-import matplotlib.pyplot as plt
-import cvxpy
-from cvxpy import *
-from sklearn.metrics import accuracy_score
 from sklearn.model_selection import train_test_split
 
-from lib.models.svm import SVM
 
-
-def get_oriented_data(test_ratio=0.2, n_dimensions=2):
+def get_two_class_oriented_data(test_ratio=0.2, n_dimensions=2):
     # Define the two sets
     m = 10000  # Number of points in each class
     n = 10000
@@ -45,17 +39,3 @@ def get_oriented_data(test_ratio=0.2, n_dimensions=2):
                                                                         stratify=labels)
 
     return data_train, data_test, labels_train, labels_test
-
-
-if __name__ == '__main__':
-    # TODO: currently support only two classes
-
-    train_data, test_data, train_labels, test_labels = get_oriented_data(n_dimensions=10)
-
-    svm = SVM()
-    svm.fit(train_data, train_labels.ravel())
-
-    predicted_labels = svm.predict(test_data)
-    accuracy = accuracy_score(predicted_labels, test_labels.ravel())
-
-    print "finished, accuracy: {}".format(accuracy)
